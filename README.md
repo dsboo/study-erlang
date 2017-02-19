@@ -51,10 +51,70 @@ filer(P, [H|T]) ->
 	end;
 filter(P, []) -> [].
 
+### if
+
 if Guard1 -> exp1;
 	Guard2 -> exp2;
 	Guard3 -> exp3; % if else 구문
 	true -> exp4 % else구문
 end
+
+### 예외 처리
+
+try expr of
+ ptn1 [when guard] -> expr1
+ ptn2 [when guard] -> expr2
+ ptn3 [when guard] -> expr3
+catch
+ exceptionType : ExceptionPtn1 [when guard] -> ExExpr1;
+ exceptionType : ExceptionPtn2 [when guard] -> ExExpr2;
+after
+ AfterExpr
+end
+
+축약형
+try expr
+catch
+..
+end
+
+#### 흔히 오류를 반환하는 코드
+
+	case f(X) of
+		{ok, val} -> do_something(val);
+		{error, Why} -> 오류처리
+	end.
+
+	
+	{ok, val} = f(X). % f(x)가 {error,Why}를 반환하는 경우, 예외발생 
+	do_something(val);
+	
+
+
+#### 모든 예외 잡기 like try{ }catch(Exception e){ }
+
+try Expr
+catch
+ _:_ -> 모든 예외를 처리하는 코드
+end
+
+### 스택추적
+
+ erlang:get_stacktrace()
+
+demo3() ->
+	try genetate_exception(5)
+	catch
+		error:X ->
+			{X, erlang:get_stacktrace()}
+	end.
+
+ {a,
+  [%stacktrace 시작부분 
+   {try_test,generate_exception,1}, % 모듈명, 함수명, 애리티
+   {try_test,demo3,0},
+   ...
+  ]
+ }
 
 
