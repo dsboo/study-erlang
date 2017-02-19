@@ -15,31 +15,31 @@
 
 ### 산술연산자
 
-| Op | description | 인수타입 | 우선순위 |
-| +X | +X | number | 1 |
-| -X | -X | number | 1 |
-| X*Y | X*Y | number | 2 |
-| X/Y | X/Y(소수점 나누기) | number | 2 |
-| bnot X | X의 비트 NOT | integer | 2 |
-| X div Y | X와 Y의 나누기 |integer  | 2 |
-| X rem Y | X를 Y로 나눈 나머지 | integer | 2 |
-| X band Y | X와 Y의 비트 AND | integer | 2 |
-| X+Y | X+Y | number | 3 |
-| X-Y | X-Y | number | 3 |
-| bor | X와 Y의 비트 OR | integer | 3 |
-| bxor | X와 Y의 비트 XOR | integer | 3 |
-| bsl | X를 산술적응로 N비트 좌측 비트이동 | integer | 3 |
-| bsr | X를 N비트 우측 비트이동 | integer | 3 |
+Op | description | 인수타입 | 우선순위
++X | +X | number | 1
+-X | -X | number | 1
+X*Y | X*Y | number | 2
+X/Y | X/Y(소수점 나누기) | number | 2
+bnot X | X의 비트 NOT | integer | 2
+X div Y | X와 Y의 나누기 |integer  | 2
+X rem Y | X를 Y로 나눈 나머지 | integer | 2
+X band Y | X와 Y의 비트 AND | integer | 2
+X+Y | X+Y | number | 3
+X-Y | X-Y | number | 3
+bor | X와 Y의 비트 OR | integer | 3
+bxor | X와 Y의 비트 XOR | integer | 3
+bsl | X를 산술적응로 N비트 좌측 비트이동 | integer | 3
+bsr | X를 N비트 우측 비트이동 | integer | 3
 
 ### 가드
 
-가드는 패턴 매칭의 능력을 증가시키는 데 사용할 수 있는 구조다. 가드를 가용하면, 패턴에 있는 변수에 대해 간단한 테스트와 비교를 수행할 수 있다.
-가드 시퀀스 G1;G2;G3 중 어느 하나만 만족하면 참이다.
-G1, G2, G3는 모든 가드표현을 만족해야 참이다.
-is_tuple(T), size(T) =:= 6, abs(element(3,T)) > 5 T가 요소를 6개 가지는 튜플이며 3번째 요소가 5보다 크면 참이된다.
-X =:= dog; X=:= cat X가 dog 이거나 cat이면 만족된다는 의미
+* 가드는 패턴 매칭의 능력을 증가시키는 데 사용할 수 있는 구조다. 가드를 가용하면, 패턴에 있는 변수에 대해 간단한 테스트와 비교를 수행할 수 있다.
+* 가드 시퀀스 G1;G2;G3 중 어느 하나만 만족하면 참이다.
+* G1, G2, G3는 모든 가드표현을 만족해야 참이다.
+* is_tuple(T), size(T) =:= 6, abs(element(3,T)) > 5 T가 요소를 6개 가지는 튜플이며 3번째 요소가 5보다 크면 참이된다.
+* X =:= dog; X=:= cat X가 dog 이거나 cat이면 만족된다는 의미
 
-shot-curcuit은 orelse andalso 연산자에서만 동작한다.
+* shot-curcuit은 orelse andalso 연산자에서만 동작한다.
 
 ### 레코드
 
